@@ -496,14 +496,61 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
+    /* Nav — hide links, keep Enquire button */
+    .nav-links a:not(.nav-cta) { display: none; }
+
+    /* Stats strip */
     .intro-strip { grid-template-columns: repeat(2, 1fr); }
-    .view-section, .outdoor-inner, .location-section { grid-template-columns: 1fr; }
-    .view-text, .outdoor-text { padding: 3rem 2rem; }
+    .intro-item { padding: 1.4rem 1rem; }
+
+    /* Sections padding */
+    section { padding: 3.5rem 1.5rem; }
+
+    /* View section */
+    .view-section { grid-template-columns: 1fr; }
+    .view-text { padding: 3rem 1.5rem; }
+    .view-photo { min-height: 300px; }
+    .view-photo img { height: 300px; }
+
+    /* Kitchen grid — single column */
+    .kitchen-grid { grid-template-columns: 1fr !important; min-height: unset !important; }
+    .kitchen-grid > div:first-child { min-height: 280px; }
+    .kitchen-grid > div:last-child { grid-template-rows: 1fr 1fr; }
+    .kitchen-grid > div:last-child > div { min-height: 200px; }
+
+    /* Rooms */
     .rooms-grid { grid-template-columns: 1fr; }
-    .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+    .room-photo-wrap img { height: 220px; }
+
+    /* Outdoor grid — single column */
+    .outdoor-grid { grid-template-columns: 1fr !important; min-height: unset !important; }
+    .outdoor-grid > div:first-child > div { min-height: 220px; }
+    .outdoor-grid > div:last-child { min-height: 260px; }
+
+    /* Building duo — single column */
+    .building-duo { grid-template-columns: 1fr !important; height: unset !important; }
+    .building-duo > div { height: 260px; }
+
+    /* Location */
+    .location-section { grid-template-columns: 1fr; gap: 2rem; }
+    .location-image img { height: 280px; }
+
+    /* Amenities */
+    .amenities-grid { grid-template-columns: 1fr; }
+
+    /* Full-width banners */
+    .rooftop-hero { height: 55vh; }
+
+    /* Photo grids */
     .photo-grid.three-col { grid-template-columns: 1fr 1fr; }
     .photo-grid.featured, .photo-grid.featured-right { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+
+    /* Hero price */
+    .hero-price-num { font-size: 2rem; }
+
+    /* CTA buttons */
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-ghost { width: 100%; max-width: 300px; text-align: center; }
   }
 </style>
 </head>
@@ -583,7 +630,7 @@
   <h2>Modern. Open. Ready.</h2>
   <p class="body-text">The open-plan layout flows from a fully equipped kitchen — with a quartz island, stainless steel appliances, handmade mosaic backsplash — straight through to the living room and out to the terrace. Everything you need, nothing you don't.</p>
 
-  <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 3fr 2fr; gap: 4px; min-height: 500px;">
+  <div class="kitchen-grid" style="margin-top: 2.5rem; display: grid; grid-template-columns: 3fr 2fr; gap: 4px; min-height: 500px;">
     <div class="grid-cell" style="overflow:hidden;">
       <img src="17381b62-4641-42cc-b355-e99e73ac1e29.jpeg" alt="Kitchen and living room" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
     </div>
@@ -649,7 +696,7 @@
   <h2 style="color:white;margin-bottom:1rem;">More than just an apartment</h2>
   <p class="body-text" style="color:rgba(255,255,255,0.6);margin-bottom:3rem;">Sunset Boulevard comes with a private pool and jungle waterfall, a panoramic rooftop terrace, a secure elevator, and covered parking. The kind of building where every shared space feels like a private one.</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;min-height:600px;">
+  <div class="outdoor-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4px;min-height:600px;">
     <div style="display:grid;grid-template-rows:1fr 1fr;gap:4px;">
       <div style="overflow:hidden;">
         <img src="809c9e78-4b25-4f17-915c-82d30fa41ac6.jpeg" alt="Pool area" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -734,7 +781,7 @@
 </section>
 
 <!-- BUILDING DETAIL -->
-<div style="display:grid;grid-template-columns:1fr 1fr;height:420px;">
+<div class="building-duo" style="display:grid;grid-template-columns:1fr 1fr;height:420px;">
   <div style="overflow:hidden;">
     <img src="b19fa873-312e-431d-83a4-a6eb02e66850.jpeg" alt="Sunset Boulevard elevator" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
