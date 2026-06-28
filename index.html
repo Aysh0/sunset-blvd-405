@@ -527,9 +527,10 @@
     .outdoor-grid > div:first-child > div { min-height: 220px; }
     .outdoor-grid > div:last-child { min-height: 260px; }
 
-    /* Building duo — single column */
+    /* Building duo — single column, lift verbergen */
     .building-duo { grid-template-columns: 1fr !important; height: unset !important; }
-    .building-duo > div { height: 260px; }
+    .building-duo > div { height: 320px; }
+    .elevator-div { display: none !important; }
 
     /* Location */
     .location-section { grid-template-columns: 1fr; gap: 2rem; }
@@ -551,6 +552,19 @@
     /* CTA buttons */
     .cta-buttons { flex-direction: column; align-items: center; }
     .btn-primary, .btn-ghost { width: 100%; max-width: 300px; text-align: center; }
+
+    /* Location grid — collapse to single column */
+    .location-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .location-image { order: -1; }
+    .location-image img { height: 260px; object-position: center 40%; }
+
+    /* Photo object-positions on mobile — show the good stuff */
+    .img-balcony { object-position: center 80% !important; }
+    .img-sunset  { object-position: center 20% !important; }
+    .img-living  { object-position: center 15% !important; }
+
+    /* Hero — minder hoog op mobiel */
+    .hero { height: 75vh; min-height: 480px; }
   }
 </style>
 </head>
@@ -621,7 +635,7 @@
 
 <!-- SECOND VIEW PHOTO - FULL WIDTH -->
 <div style="height: 60vh; overflow: hidden;">
-  <img src="f3304078-b0c9-4e36-9026-95125cd37918.jpeg" alt="Living room and balcony" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;">
+  <img class="img-living" src="f3304078-b0c9-4e36-9026-95125cd37918.jpeg" alt="Living room and balcony" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;">
 </div>
 
 <!-- KITCHEN & LIVING -->
@@ -681,7 +695,7 @@
 
 <!-- BALCONY -->
 <div style="height: 70vh; overflow: hidden; position: relative;">
-  <img src="61760c85-1602-456e-9480-4fe37cd1b17f.jpeg" alt="Balcony ocean view" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
+  <img class="img-balcony" src="61760c85-1602-456e-9480-4fe37cd1b17f.jpeg" alt="Balcony ocean view" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
   <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(18,26,31,0.6) 0%, transparent 50%);display:flex;align-items:flex-end;padding:3rem 5vw;">
     <div>
       <p class="section-tag" style="color:rgba(255,255,255,0.6);">Private Balcony</p>
@@ -713,7 +727,7 @@
 
 <!-- ROOFTOP SUNSET - FULL WIDTH -->
 <div style="height: 85vh; overflow: hidden; position: relative;">
-  <img src="acd9a0d8-d0d2-49e2-a284-00be756a7051.jpeg" alt="Rooftop sunset" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+  <img class="img-sunset" src="acd9a0d8-d0d2-49e2-a284-00be756a7051.jpeg" alt="Rooftop sunset" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
   <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(18,26,31,0.7) 0%, rgba(0,0,0,0.1) 60%);">
     <div style="position:absolute;bottom:3.5rem;left:5vw;right:5vw;max-width:640px;">
       <p class="section-tag" style="color:rgba(255,220,160,0.8);">Rooftop Terrace</p>
@@ -745,7 +759,7 @@
 
 <!-- LOCATION -->
 <section id="location" style="padding: 6rem 5vw; background: white;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+  <div class="location-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
     <div>
       <p class="section-tag">Location</p>
       <h2>Jacó — Costa Rica's<br>liveliest surf town</h2>
@@ -781,8 +795,8 @@
 </section>
 
 <!-- BUILDING DETAIL -->
-<div class="building-duo" style="display:grid;grid-template-columns:1fr 1fr;height:420px;">
-  <div style="overflow:hidden;">
+<div class="building-duo" style="display:grid;grid-template-columns:1fr 1fr;height:420px;" id="building-duo">
+  <div class="elevator-div" style="overflow:hidden;">
     <img src="b19fa873-312e-431d-83a4-a6eb02e66850.jpeg" alt="Sunset Boulevard elevator" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
   <div style="overflow:hidden;">
